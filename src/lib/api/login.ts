@@ -31,7 +31,7 @@ export async function Register(user:User) {
         default:
             break;
     }
-    console.log(await response.json())
+
     return LoginResponse
 }
 
