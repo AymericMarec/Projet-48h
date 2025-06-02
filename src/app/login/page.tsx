@@ -2,8 +2,11 @@
 
 import { User,LoginResponse } from "@/type/log";
 import { Login } from "@/lib/api/login"
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
+    const router = useRouter();
+
     const handleLogin = async (e:any) => {
         e.preventDefault()
         const formData = new FormData(e.target);
@@ -13,10 +16,14 @@ export default function LoginPage() {
             password : formData.get('password') as string
 
         }
-        const LoginResponse = await Login(user)
+        const {LoginResponse,data} = await Login(user)
+        console.log(LoginResponse)
         if(LoginResponse?.success){
-            //redirect to main page
+            localStorage.setItem('auth_token', data.token);
+            localStorage.setItem('auth_user',JSON.stringify(data.user) );
+            router.push('/');
         }
+
         //afficher le message d'erreur 
         console.log(LoginResponse?.message)
 

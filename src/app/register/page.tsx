@@ -2,8 +2,12 @@
 
 import { User,LoginResponse } from "@/type/log";
 import { Register } from "@/lib/api/login"
+import { useRouter } from 'next/navigation';
+
 
 export default function RegisterPage() {
+    const router = useRouter();
+
     const handleRegister = async (e:any) => {
         e.preventDefault()
         const formData = new FormData(e.target);
@@ -11,11 +15,10 @@ export default function RegisterPage() {
             name : formData.get('nom') as string,
             email: formData.get('email') as string,
             password : formData.get('password') as string
-
         }
         const LoginResponse = await Register(user)
         if(LoginResponse?.success){
-            //redirect to main page
+            router.push('/login');
         }
         //afficher le message d'erreur 
         console.log(LoginResponse?.message)

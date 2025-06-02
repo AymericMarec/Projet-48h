@@ -1,6 +1,6 @@
 'use server'
 
-import { User,LoginResponse } from "@/type/log";
+import { User,LoginResponse, LoginData} from "@/type/log";
 
 export async function Register(user:User) {
     const API_URL = process.env.API_URL
@@ -24,8 +24,10 @@ export async function Register(user:User) {
             break;
         case 400:
             LoginResponse={success:false,message:"Utilisateur deja existant"}
+            break;
         case 500:
             LoginResponse={success:false,message:"Erreur serveur"}
+            break;
         default:
             break;
     }
@@ -49,16 +51,19 @@ export async function Login(user:User) {
     console.log(response.status)
     var LoginResponse:LoginResponse | null = null;
     switch (response.status) {
-        case 201:
+        case 200:
             LoginResponse={success:true,message:"Connexion réussi"}
             break;
         case 400:
             LoginResponse={success:false,message:"Mauvais identifiants"}
+            break
         case 500:
             LoginResponse={success:false,message:"Erreur serveur"}
+            break
         default:
             break;
     }
-    console.log(await response.json())
-    return LoginResponse
+    console.log(LoginResponse)
+    const data:LoginData = await response.json()
+    return {LoginResponse,data}
 }
