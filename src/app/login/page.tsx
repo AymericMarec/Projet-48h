@@ -3,7 +3,7 @@
 import { User,LoginResponse } from "@/type/log";
 import { Login } from "@/lib/api/login"
 import { useRouter } from 'next/navigation';
-import '../css/auth.css';
+import '../../css/auth.css';
 
 export default function LoginPage() {
     const router = useRouter();
