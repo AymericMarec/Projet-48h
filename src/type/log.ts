@@ -2,7 +2,8 @@ export interface User{
     id?:string|null,
     name: string|null,
     email:string,
-    password:string|null
+    password?:string|null,
+    profilpicture?:string|null
 }
 
 export interface LoginResponse {
