@@ -43,4 +43,5 @@ export interface Location {
 
 export interface MapProps{
   id?:string
+  search?:string
 }
