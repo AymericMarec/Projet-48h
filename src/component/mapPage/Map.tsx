@@ -5,10 +5,11 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { LatLngExpression } from 'leaflet'
-import { Location } from '@/type/map'
+import { Location,MapProps } from '@/type/map'
 import { useEffect, useState } from 'react'
-import { GetLocations } from '@/lib/api/map'
+import { GetLocations,GetLocationById } from '@/lib/api/map'
 import { RawStation } from '@/type/map'
+
 
 delete (L.Icon.Default.prototype as any)._getIconUrl
 L.Icon.Default.mergeOptions({
@@ -18,7 +19,7 @@ L.Icon.Default.mergeOptions({
 })
 
 
-export default function Map(){
+export default function Map(props:MapProps){
     const [mapData,SetMapData] =  useState<RawStation[] | null>(null)
     const [Loading,SetLoading] = useState(true)
     useEffect(()=>{
@@ -27,7 +28,17 @@ export default function Map(){
             SetMapData(data)
             SetLoading(false)
         }
-        FetchLocation()
+        const FetchLocationById = async ()=>{
+            const data = await GetLocationById(props.id as string)
+            SetMapData([data])
+            SetLoading(false)
+        }
+        if(!props.id){
+            FetchLocation()
+        }else{
+            FetchLocationById()
+        }
+        
     },[])
     
     if (Loading || !mapData) return <p>Chargement de la carte...</p>
@@ -36,7 +47,7 @@ export default function Map(){
 
     if (mapData.length === 0) return <p>Aucune station trouvée.</p>
     return(
-        <MapContainer center={center} zoom={6} scrollWheelZoom style={{ height: '1000px', width: '100%' }}>
+        <MapContainer center={center} zoom={6} scrollWheelZoom style={{ height: '600px', width: '60%' }}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>'

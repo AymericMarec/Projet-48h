@@ -4,9 +4,15 @@ import { GetLocationById } from "@/lib/api/map"
 import { RawStation } from "@/type/map"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
+import Map from "@/component/mapPage/Map"
+import dynamic from 'next/dynamic'
 
 
 export default function Details(){
+    const Map = dynamic(() => import('@/component/mapPage/Map'), {
+        ssr: false,
+    })
+
     const params = useParams()
     const id = params.id as string
 
@@ -22,6 +28,10 @@ export default function Details(){
     },[])
 
     return(
-        <div>{Station?.address}</div>
+        <div>
+            <div>{Station?.address}</div>
+        
+            <Map id={id}></Map>
+        </div>
     )
 }
