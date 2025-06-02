@@ -32,3 +32,26 @@ export async function RemoveUser(token:string) {
         },
     });
 }
+
+export async function UpdateUser(token:string, user:User) {
+    const API_URL = process.env.API_URL
+    const response = await fetch(`${API_URL}/my-account/edit`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            name: user.name,
+            email: user.email,
+            profilePicture: user.profilpicture,
+        }),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to update user');
+    }
+
+    const data = await response.json();
+    return data;
+}
