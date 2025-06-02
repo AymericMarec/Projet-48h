@@ -1,6 +1,7 @@
 'use server'
 
 import { User,LoginResponse, LoginData} from "@/type/log";
+import { ApiError } from "next/dist/server/api-utils";
 
 export async function Register(user:User) {
     const API_URL = process.env.API_URL
@@ -67,3 +68,4 @@ export async function Login(user:User) {
     const data:LoginData = await response.json()
     return {LoginResponse,data}
 }
+
