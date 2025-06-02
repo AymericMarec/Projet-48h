@@ -13,7 +13,6 @@ export async function GetLocations() {
         },
     });
     const data:RawStation[] = await response.json()
-
     //on inverse la longitude et latitude , par ce que les donnnées recu sont puantes
     for(const station in data ){
         const original = data[station].coordinates.coordinates;
@@ -22,6 +21,27 @@ export async function GetLocations() {
         const correctedCoordinates: LatLngExpression = [original[1], original[0]];
         data[station].coordinates.coordinates = correctedCoordinates;
         }
+    }
+    return data
+}
+
+export async function GetLocationById(id:string) {
+    const API_URL = process.env.API_URL
+    const response = await fetch(`${API_URL}/stations/${id}`, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+    });
+    const json = await response.json()
+    console.log(json)
+    console.log(`${API_URL}/stations/${id}`)
+    const data:RawStation = json
+    const original = data.coordinates.coordinates;
+
+    if (Array.isArray(original) && original.length === 2) {
+        const correctedCoordinates: LatLngExpression = [original[1], original[0]];
+        data.coordinates.coordinates = correctedCoordinates;
     }
     return data
 }

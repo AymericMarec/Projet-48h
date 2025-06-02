@@ -36,7 +36,7 @@ export default function Map(){
 
     if (mapData.length === 0) return <p>Aucune station trouvée.</p>
     return(
-        <MapContainer center={center} zoom={6} scrollWheelZoom style={{ height: '500px', width: '100%' }}>
+        <MapContainer center={center} zoom={6} scrollWheelZoom style={{ height: '1000px', width: '100%' }}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>'
