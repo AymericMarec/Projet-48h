@@ -1,8 +1,13 @@
 'use client'
 
-import SearchItinerary from "@/component/homePage/searchItinerary";
+import Map from "@/component/Map";
+import dynamic from 'next/dynamic'
 
 export default function Home() {
+
+  const Map = dynamic(() => import('@/component/Map'), {
+    ssr: false,
+  })
   return (
     <div>
     </div>
