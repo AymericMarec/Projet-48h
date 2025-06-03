@@ -58,7 +58,39 @@ export default function Map(props:MapProps){
         }
     },[props.search,mapData])
     
-    if (Loading || !filteredData) return <p>Chargement de la carte...</p>
+    if (Loading || !filteredData) return (
+        <div style={{
+            width: '100%',
+            height: props.height || 400,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'transparent',
+        }}>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}>
+                <div style={{
+                    width: 48,
+                    height: 48,
+                    border: '5px solid #e0f7f4',
+                    borderTop: '5px solid #4EC9B4',
+                    borderRadius: '50%',
+                    animation: 'spin 1s linear infinite',
+                }} />
+                <style>{`
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                `}</style>
+                <div style={{ marginTop: 16, color: '#4EC9B4', fontWeight: 500, fontFamily: 'Inter, Arial, sans-serif' }}>Chargement de la carte...</div>
+            </div>
+        </div>
+    )
 
     const center: LatLngExpression = [44.8378, -0.5792] 
 
