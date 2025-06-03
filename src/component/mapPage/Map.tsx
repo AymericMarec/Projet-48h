@@ -59,7 +59,7 @@ export default function Map(props:MapProps){
 
     if (filteredData.length === 0) return <p>Aucune station trouvée.</p>
     return(
-        <MapContainer center={center} zoom={6} scrollWheelZoom style={{ height: '600px', width: '60%' }}>
+        <MapContainer center={center} zoom={props.zoom} scrollWheelZoom style={{ height: '600px', width: '60%' }}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>'
