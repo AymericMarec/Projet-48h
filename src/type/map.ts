@@ -45,4 +45,6 @@ export interface MapProps{
   zoom:number,
   id?:string
   search?:string
+  width:string
+  height:string
 }
