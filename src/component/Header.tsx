@@ -21,13 +21,9 @@ export default function Header({ currentPage = '' }: HeaderProps) {
     <>
       <header className="index-header">
         <div className="index-header-left">
-          <Image
-            src="/img/logo-levelotbm.png"
-            alt="Le Vélo par TBM"
-            width={220}
-            height={60}
-            className="index-logo"
-          />
+        <a href="/" style={{ display: 'block' }}>
+                    <Image src="/img/logo-levelotbm.png" alt="Le Vélo par TBM" width={220} height={60} className="index-logo" />
+                  </a>
           <nav className="index-nav">
           <a href="/pathfinding" className="index-nav-item">Se déplacer</a>
           <a href="/map" className="index-nav-item">Map</a>
