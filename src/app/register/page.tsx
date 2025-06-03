@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { User, LoginResponse } from "@/type/log";
 import { Register } from "@/lib/api/login";
 import { useRouter } from 'next/navigation';
-import '../css/auth.css';
+import '@/css/auth.css';
 
 export default function RegisterPage() {
     const router = useRouter();

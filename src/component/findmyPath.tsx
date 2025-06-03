@@ -12,15 +12,8 @@ export default function FindMyPath() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input type="text" value={departure} onChange={(e) => setDeparture(e.target.value)} placeholder="Lieu de départ" required/>
-        </div>
-
-        <div>
-          <input type="text" value={arrival} onChange={(e) => setArrival(e.target.value)} placeholder="Lieu d'arrivée" required/>
-        </div>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+      <form onSubmit={handleSubmit} style={{ width: '100%' }}>
         <button type="submit"> C'est parti !</button>
       </form>
     </div>

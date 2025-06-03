@@ -42,6 +42,7 @@ export interface Location {
 }
 
 export interface MapProps{
+  zoom:number,
   id?:string
   search?:string
 }
