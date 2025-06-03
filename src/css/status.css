@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+.statusContainer {
+    @apply flex flex-col items-center justify-center min-h-screen bg-white rounded-2xl 
+}
+
+.upPart {
+    @apply flex items-center justify-center mb-8
+}
+
+.downPart {
+    @apply text-center
+}
+
+.noPerturbationsText {
+    @apply text-3xl font-semibold text-black
+}
+
+.circleCheck {
+    @apply bg-green-100 rounded-full p-8 flex items-center justify-center shadow-md;
+}
+
+.checkIcon {
+    @apply w-16 h-16 text-green-400;
+}
