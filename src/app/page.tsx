@@ -89,7 +89,7 @@ export default function Home() {
           <div className="stations-section-content">
             <h2 className="stations-section-title">L'état des stations aujourd'hui</h2>
             <p className="stations-section-desc">Pour voyager en toute sérénité, consultez l'info trafic du réseau et le détail de votre ligne !</p>
-            <button className="stations-section-btn">Voir tout le réseau TBM</button>
+            <button className="stations-section-btn" onClick={() => window.location.href = `/disruptions`}>Voir tout le réseau TBM</button>
           </div>
         </div>
         <div className="stations-section-right">
