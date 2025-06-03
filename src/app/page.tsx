@@ -1,12 +1,11 @@
 'use client'
 
-import Map from "@/component/Map";
-import dynamic from 'next/dynamic'
 import SearchStation from "@/component/searchStation"
 import FindMyPath from "@/component/findmyPath";
 import StatusStations from "@/component/statusStations";
 
 export default function Home() {
+
 
   return (
     <div>

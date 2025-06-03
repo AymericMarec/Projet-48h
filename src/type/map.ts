@@ -40,3 +40,8 @@ export interface Location {
   name: string
   position: LatLngExpression
 }
+
+export interface MapProps{
+  id?:string
+  search?:string
+}
