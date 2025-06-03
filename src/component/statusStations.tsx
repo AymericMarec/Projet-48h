@@ -61,7 +61,7 @@ export default function StatusStations() {
         <span className="arrowRight">→</span>
       </div>
       <div className="statusCardBottom">
-        <button className="voirDetailBtn"  style={{ color: '#58B998' }}>Voir le détail</button>
+        <button className="voirDetailBtn"  onClick={() => window.location.href = '/disruptions'} style={{ color: '#58B998' }}>Voir le détail</button>
       </div>
     </div>
   );

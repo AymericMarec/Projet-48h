@@ -64,3 +64,43 @@
 .statusError {
     @apply flex flex-wrap items-center bg-orange-200 rounded-2xl shadow-md p-6 w-full max-w-sm mx-auto;
 }
+
+/* Styles pour le composant StationHS */
+.stationHSCard {
+    @apply flex flex-col items-center bg-white rounded-2xl shadow-md p-6 w-full max-w-md mx-auto;
+}
+
+.stationHSDuration {
+    @apply text-base font-semibold mt-4 mx-auto; /* mt-4 pour espace au dessus, mx-auto pour centrer */
+    color: #58B999; /* tu peux aussi mettre ici la couleur */
+}
+
+
+.stationHSImage {
+    @apply w-15 h-auto;
+}
+
+.stationHSTextContent {
+    @apply flex-grow ml-4 text-center;
+}
+
+.stationHSTitle {
+    @apply text-xl font-semibold text-black mb-2;
+}
+
+.stationHSDescription {
+    @apply text-gray-500 text-sm;
+}
+
+.stationsHSList {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6
+}
+
+.stationsHSText {
+    @apply text-2xl font-bold text-red-600 text-center       mb-4
+}
+
+.stationsNotInstalledText {
+    @apply text-2xl font-bold text-orange-400 text-center       mb-4
+}
+
