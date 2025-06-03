@@ -61,7 +61,7 @@ export default function Details(){
 
             {/* Fil d'Ariane */}
             <div style={{ fontSize: 13, color: '#888', marginLeft: 48, marginBottom: 18, fontFamily: 'Inter, Arial, sans-serif' }}>
-                Accueil &gt; {Station?.name?.[0]?.text || ''}
+                Accueil &gt; {LoadingStation ? <span className="skeleton" style={{ display: 'inline-block', width: 120, height: 16, borderRadius: 8, background: 'linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%)', backgroundSize: '200% 100%', animation: 'skeleton-shimmer 1.2s infinite' }} /> : Station?.name?.[0]?.text || ''}
             </div>
 
             {/* Bloc d'information principal */}
@@ -89,8 +89,17 @@ export default function Details(){
                         </g>
                     </svg>
                     <div>
-                        <div style={{ fontWeight: 800, fontSize: 28, color: '#2EAD95', letterSpacing: '-0.5px' }}>{Station?.name?.[0]?.text || ''}</div>
-                        <div style={{ fontSize: 15, color: '#222', marginTop: 6, fontWeight: 400 }}>{Station?.address || ''}</div>
+                        {LoadingStation ? (
+                            <>
+                                <div style={{ width: 180, height: 28, borderRadius: 8, background: 'linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%)', backgroundSize: '200% 100%', animation: 'skeleton-shimmer 1.2s infinite', marginBottom: 8 }} />
+                                <div style={{ width: 140, height: 16, borderRadius: 8, background: 'linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%)', backgroundSize: '200% 100%', animation: 'skeleton-shimmer 1.2s infinite' }} />
+                            </>
+                        ) : (
+                            <>
+                                <div style={{ fontWeight: 800, fontSize: 28, color: '#2EAD95', letterSpacing: '-0.5px' }}>{Station?.name?.[0]?.text || ''}</div>
+                                <div style={{ fontSize: 15, color: '#222', marginTop: 6, fontWeight: 400 }}>{Station?.address || ''}</div>
+                            </>
+                        )}
                     </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
@@ -110,6 +119,7 @@ export default function Details(){
                             boxShadow: isFav ? '0 0 0 2px #2EAD9522' : 'none',
                             transition: 'box-shadow 0.2s',
                         }}
+                        disabled={LoadingStation}
                     >
                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 13.3333L6.66667 12.1333C3.33333 9.13333 1.33333 7.4 1.33333 5.33333C1.33333 3.73333 2.73333 2.33333 4.33333 2.33333C5.2 2.33333 6.03333 2.73333 6.6 3.4C7.16667 2.73333 8 2.33333 8.86667 2.33333C10.4667 2.33333 11.8667 3.73333 11.8667 5.33333C11.8667 7.4 9.86667 9.13333 6.53333 12.1333L8 13.3333Z" stroke={isFav ? '#2EAD95' : '#C4C4C4'} strokeWidth="1.5" fill={isFav ? '#2EAD95' : 'none'} />
@@ -129,6 +139,7 @@ export default function Details(){
                             fontFamily: 'Inter, Arial, sans-serif',
                             boxShadow: '0 2px 8px #FF5A7D22',
                         }}
+                        disabled={LoadingStation}
                     >
                         Signaler un problème
                     </button>
@@ -161,7 +172,23 @@ export default function Details(){
                         fontFamily: 'Inter, Arial, sans-serif',
                     }}>
                         <div style={{ fontWeight: 600, fontSize: 16, marginBottom: 18 }}>En ce moment</div>
-                        {Station && (Station.is_installed === false || (Station.is_renting === false && Station.is_returning === false)) ? (
+                        {LoadingStation ? (
+                            <div style={{ display: 'flex', gap: 32, alignItems: 'center', justifyContent: 'flex-start' }}>
+                                {[1,2,3,4].map((i) => (
+                                    <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 70 }}>
+                                        <div style={{ width: 48, height: 48, borderRadius: 12, background: 'linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%)', backgroundSize: '200% 100%', animation: 'skeleton-shimmer 1.2s infinite', marginBottom: 2 }} />
+                                        <div style={{ width: 32, height: 28, borderRadius: 8, background: 'linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%)', backgroundSize: '200% 100%', animation: 'skeleton-shimmer 1.2s infinite', marginBottom: 4 }} />
+                                        <div style={{ width: 48, height: 13, borderRadius: 6, background: 'linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%)', backgroundSize: '200% 100%', animation: 'skeleton-shimmer 1.2s infinite', marginTop: 2 }} />
+                                    </div>
+                                ))}
+                                <style>{`
+                                    @keyframes skeleton-shimmer {
+                                        0% { background-position: 200% 0; }
+                                        100% { background-position: -200% 0; }
+                                    }
+                                `}</style>
+                            </div>
+                        ) : Station && (Station.is_installed === false || (Station.is_renting === false && Station.is_returning === false)) ? (
                             <div style={{ display: 'flex', alignItems: 'center', gap: 18, padding: '24px 0' }}>
                                 <img src="/images/autres/station_indispo.png" alt="Station indisponible" style={{ width: 56, height: 56 }} />
                                 <div>
@@ -213,7 +240,7 @@ export default function Details(){
                         marginTop: 8,
                         boxShadow: '0 2px 8px #4EC9B422',
                         display: Station && (Station.is_installed === false || (Station.is_renting === false && Station.is_returning === false)) ? 'none' : 'block',
-                    }}>
+                    }} disabled={LoadingStation}>
                         Réserver mon vélo
                     </button>
                 </div>
