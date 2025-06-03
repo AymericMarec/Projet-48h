@@ -7,7 +7,6 @@ import '@/css/index.css';
 import { useEffect, useState } from 'react';
 import { RawStation } from '@/type/map';
 import { GetLocationById } from '@/lib/api/map';
-import SearchItinerary from '@/component/homePage/searchItinerary';
 
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
