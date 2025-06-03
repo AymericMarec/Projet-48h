@@ -2,7 +2,7 @@
 
 import { GetLocations } from "@/lib/api/map"
 import { RawStation } from "@/type/map"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 interface SearchStationDisplayProps{
@@ -45,21 +45,22 @@ export default function SearchStationDisplay(props:SearchStationDisplayProps){
     }
 
     return(
-    <div>
+    <div style={{ width: '100%' }}>
         {isDropdownOpen && searchTerm && (
-            <ul>
+            <ul className="suggestions-list" style={{ width: '100%' }}>
                 {filteredStations.length > 0 ? (
                     filteredStations.map((station) => (
                         <li
                             key={station._id}
                             onClick={() => router.push(`/details/${station._id}`)}
 
+                            className="suggestion-item"
                         >
                             {station.name[0].text}
                         </li>
                     ))
                 ) : (
-                    <li>Aucune station trouvée</li>
+                    <li className="suggestion-item empty">Aucune station trouvée</li>
                 )}
             </ul>
         )}
