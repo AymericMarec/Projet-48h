@@ -733,3 +733,11 @@
   @apply text-2xl font-semibold mx-auto; 
   color: #58B999;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
