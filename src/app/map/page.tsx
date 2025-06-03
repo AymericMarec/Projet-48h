@@ -16,7 +16,7 @@ export default function MapPage(){
         setSearchTerm(e.target.value)
     }
     //permet que la map se recharge pas quand on tape dans la barre de recherche
-    const MemoizedMap = useMemo(() => <Map search={searchTerm} zoom={12} />, [searchTerm])
+    const MemoizedMap = useMemo(() => <Map search={searchTerm} zoom={12} height="600px" width="50%" />, [searchTerm])
     
     return(
         <div>
