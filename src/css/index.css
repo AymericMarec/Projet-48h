@@ -8,6 +8,7 @@
 
 /* === HEADER (nouvelle maquette) === */
 .index-header {
+  font-family: 'Montserrat', Arial, sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;

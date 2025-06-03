@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import '@/css/index.css';
 
+
 export default function Header(){
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     useEffect(() => {
