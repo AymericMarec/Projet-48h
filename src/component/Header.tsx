@@ -26,7 +26,7 @@ export default function Header({ currentPage = '' }: HeaderProps) {
                   </a>
           <nav className="index-nav">
           <a href="/pathfinding" className="index-nav-item">Se déplacer</a>
-          <a href="/map" className="index-nav-item">Map</a>
+          <a href="/map" className="index-nav-item">Carte</a>
           <a href="/disruptions" className="index-nav-item">Perturbations</a>
           </nav>
         </div>
