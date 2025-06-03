@@ -67,12 +67,12 @@
 
 /* Styles pour le composant StationHS */
 .stationHSCard {
-    @apply flex flex-col items-center bg-white rounded-2xl shadow-md p-6 w-full max-w-md mx-auto;
+    @apply flex flex-col items-center bg-white rounded-2xl shadow-md p-6 w-full max-w-md mx-auto cursor-pointer;
 }
 
 .stationHSDuration {
-    @apply text-base font-semibold mt-4 mx-auto; /* mt-4 pour espace au dessus, mx-auto pour centrer */
-    color: #58B999; /* tu peux aussi mettre ici la couleur */
+    @apply text-base font-semibold mt-4 mx-auto; 
+    color: #58B999; 
 }
 
 

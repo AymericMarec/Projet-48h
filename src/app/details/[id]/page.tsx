@@ -54,7 +54,7 @@ export default function Details(){
 
     return(
         <div style={{ minHeight: '100vh', overflowY: 'auto', background: '#F6FAFB' }}>
-            <Header/>
+            <Header currentPage={"Station " + Station?.name?.[0]?.text }/>
 
             {/* Barre séparatrice */}
             <div style={{ width: '100%', height: 1, background: '#E5E5E5', margin: 0, marginBottom: 18 }} />

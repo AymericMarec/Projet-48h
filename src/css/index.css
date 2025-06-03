@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* === FOND GENERAL === */
 .index-root {
   min-height: 100vh;
@@ -356,3 +358,8 @@
   cursor: default;
   background: none;
 } 
+
+.header-current-page_text {
+  @apply text-2xl font-semibold mx-auto; 
+  color: #58B999;
+}

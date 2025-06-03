@@ -45,7 +45,7 @@ export default function Disruptions() {
 
     return (
         <>
-            <Header/>
+            <Header currentPage='Perturbations'/>
             <h2 className="stationsHSText">
                 Stations Hors-Service
             </h2>
