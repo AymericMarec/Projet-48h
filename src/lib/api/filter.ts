@@ -4,8 +4,6 @@ import { RawStation } from "@/type/map"
 
 export function FilterStations(query: string, stations: RawStation[]): RawStation[] {
   const lowerQuery = query.toLowerCase().trim()
-  console.log(stations)
-  console.log(query)
   if(!stations){
       return stations
   }

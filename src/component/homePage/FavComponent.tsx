@@ -26,6 +26,7 @@ export default function DisplayFav(props:FavDisplayProps){
 
     return (
         <div>
+            <p>{Station.name[0].text}</p>
             {/* afficher les donnnées */}
         </div>
     )

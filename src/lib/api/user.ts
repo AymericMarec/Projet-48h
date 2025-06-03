@@ -12,7 +12,6 @@ export async function GetInfoUser(token:string) {
         },
     });
     const data = await response.json()
-    console.log(data)
     const user:User = {
         id:data.user.id,
         email:data.user.email,

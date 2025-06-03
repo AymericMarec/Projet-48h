@@ -34,8 +34,6 @@ export async function GetLocationById(id:string) {
         },
     });
     const json = await response.json()
-    console.log(json)
-    console.log(`${API_URL}/stations/${id}`)
     const data:RawStation = json
     const original = data.coordinates.coordinates;
 
