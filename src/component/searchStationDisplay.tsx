@@ -2,6 +2,7 @@
 
 import { GetLocations } from "@/lib/api/map"
 import { RawStation } from "@/type/map"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 interface SearchStationDisplayProps{
@@ -13,6 +14,8 @@ export default function SearchStationDisplay(props:SearchStationDisplayProps){
     const [stations, setStations] = useState<RawStation[]>([])
     const [error, setError] = useState<string | null>(null)
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+    const router = useRouter();
     
     useEffect(() => {
         const fetchStations = async () => {
@@ -49,7 +52,7 @@ export default function SearchStationDisplay(props:SearchStationDisplayProps){
                     filteredStations.map((station) => (
                         <li
                             key={station._id}
-                            onClick={() => handleStationSelect(station.name[0].text)}
+                            onClick={() => router.push(`/details/${station._id}`)}
 
                         >
                             {station.name[0].text}
