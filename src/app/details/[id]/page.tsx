@@ -32,7 +32,7 @@ export default function Details(){
         const favRaw = localStorage.getItem('fav');
         const favArray = favRaw ? JSON.parse(favRaw) : [];
         const id = Station?._id
-        if(favArray.includes(id)){
+        if(favArray.includes(params.id)){
             setFav(true)
         }
     },[])
@@ -190,7 +190,7 @@ export default function Details(){
                             </div>
                         ) : Station && (Station.is_installed === false || (Station.is_renting === false && Station.is_returning === false)) ? (
                             <div style={{ display: 'flex', alignItems: 'center', gap: 18, padding: '24px 0' }}>
-                                <img src="/images/autres/station_indispo.png" alt="Station indisponible" style={{ width: 56, height: 56 }} />
+                                <img src="/img/icon-station-v3-closed (1).svg" alt="Station indisponible" style={{ width: 56, height: 56 }} />
                                 <div>
                                     <div style={{ fontWeight: 800, fontSize: 28, color: '#222' }}>Station indisponible</div>
                                     <div style={{ fontSize: 15, color: '#888', marginTop: 2, fontWeight: 400 }}>

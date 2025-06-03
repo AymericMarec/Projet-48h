@@ -201,7 +201,7 @@ export default function Map(props:MapProps){
                                             {/* Capacité */}
                                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 48 }}>
                                                 <img src="/img/icon-abri-velo.svg" alt="capacité" style={{ width: 32, height: 32, marginBottom: 2 }} />
-                                                <div style={{ fontWeight: 700, fontSize: 20, color: '#111' }}>{loc.capacity ?? '-'}</div>
+                                                <div style={{ fontWeight: 700, fontSize: 20, color: '#2EAD95' }}>{loc.capacity ?? '-'}</div>
                                                 <div style={{ fontSize: 11, color: '#888', marginTop: 0 }}>capacité</div>
                                             </div>
                                         </div>
