@@ -1,0 +1,11 @@
+.iframe-container {
+    width: 100%;
+    height: calc(100vh - 4rem); /* Ajuste 4rem selon la hauteur de ton Header */
+}
+
+.custom-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}

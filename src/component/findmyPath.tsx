@@ -8,7 +8,7 @@ export default function FindMyPath() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `https://webviews.infotbm.com/fr/itineraires?departure=${departure}&arrival=${arrival}`;
+    window.location.href = `/pathfinding`;
   };
 
   return (
