@@ -32,7 +32,7 @@ export default function Details(){
         const favRaw = localStorage.getItem('fav');
         const favArray = favRaw ? JSON.parse(favRaw) : [];
         const id = Station?._id
-        if(favArray.includes(id)){
+        if(favArray.includes(params.id)){
             setFav(true)
         }
     },[])

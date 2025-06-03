@@ -53,27 +53,27 @@ export default function SearchStationDisplay(props:SearchStationDisplayProps){
             <span style={{ fontWeight: 600, fontSize: 17, color: '#3A4A5A' }}>Stations LE VÉLO</span>
         </div>
         {/* Suggestions */}
-        {isDropdownOpen && searchTerm && (
-            <ul className="suggestions-list" style={{ width: '100%', background: '#F6FAFB', borderRadius: 12, boxShadow: '0 1px 4px #0001', padding: 0, margin: 0, listStyle: 'none', maxHeight: 220, overflowY: 'auto' }}>
-                {filteredStations.length > 0 ? (
-                    filteredStations.map((station) => (
-                        <li
-                            key={station._id}
-                            onClick={() => router.push(`/details/${station._id}`)}
-                            className="suggestion-item"
-                            style={{ padding: '10px 16px', cursor: 'pointer', fontSize: 15, color: '#222', borderBottom: '1px solid #F0F0F0' }}
-                        >
-                            {station.name[0].text}
-                        </li>
-                    ))
-                ) : (
-                    <li className="suggestion-item empty" style={{ padding: '10px 16px', color: '#888', fontSize: 15 }}>Aucune station trouvée</li>
-                )}
-            </ul>
-        )}
-        {isDropdownOpen && (
-            <div onClick={() => setIsDropdownOpen(false)} />
-        )}
+        {(isDropdownOpen && searchTerm) ? (
+            <>
+                <ul className="suggestions-list" style={{ width: '100%', background: '#F6FAFB', borderRadius: 12, boxShadow: '0 1px 4px #0001', padding: 0, margin: 0, listStyle: 'none', maxHeight: 220, overflowY: 'auto' }}>
+                    {filteredStations.length > 0 ? (
+                        filteredStations.map((station) => (
+                            <li
+                                key={station._id}
+                                onClick={() => router.push(`/details/${station._id}`)}
+                                className="suggestion-item"
+                                style={{ padding: '10px 16px', cursor: 'pointer', fontSize: 15, color: '#222', borderBottom: '1px solid #F0F0F0' }}
+                            >
+                                {station.name[0].text}
+                            </li>
+                        ))
+                    ) : (
+                        <li className="suggestion-item empty" style={{ padding: '10px 16px', color: '#888', fontSize: 15 }}>Aucune station trouvée</li>
+                    )}
+                </ul>
+                <div onClick={() => setIsDropdownOpen(false)} />
+            </>
+        ) : null}
     </div>
     )
 }
