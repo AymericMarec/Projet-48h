@@ -49,7 +49,7 @@ export default function StatusStations() {
   }
 
   return (
-    <div className="statusCard">
+    <div className="statusCard cursor-pointer" onClick={() => window.location.href = '/disruptions'}>
       <div className="statusCardLeft">
       <img src="/img/stationsHSlogo.png" alt="Stations HS Logo" className="stationsHSLogo"/>
       </div>
@@ -61,7 +61,7 @@ export default function StatusStations() {
         <span className="arrowRight">→</span>
       </div>
       <div className="statusCardBottom">
-        <button className="voirDetailBtn"  onClick={() => window.location.href = '/disruptions'} style={{ color: '#58B998' }}>Voir le détail</button>
+        <button className="voirDetailBtn" style={{ color: '#58B998' }}>Voir le détail</button>
       </div>
     </div>
   );

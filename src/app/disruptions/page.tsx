@@ -39,29 +39,31 @@ export default function Disruptions() {
       return <div className="statusError">{error}</div>;
     }
 
-    if (stationsHs.length === 0) {
-        return <div>prout</div>
-    }
-
     return (
         <>
             <Header currentPage='Perturbations'/>
-            <h2 className="stationsHSText">
-                Stations Hors-Service
-            </h2>
+            {stationsHs.length > 0 && (
+  <>
+            <h2 className="stationsHSText">Stations Hors-Service</h2>
             <div className="stationsHSList">
-                {stationsHs.map((stationd) => (
-                    <StationHS  key={stationd.station_id} station={stationd} />
-                ))}
+              {stationsHs.map((stationd) => (
+                <StationHS key={stationd.station_id} station={stationd} />
+              ))}
             </div>
-            <h2 className="stationsNotInstalledText">
-                Stations en cours d'installation
-            </h2>
+          </>
+        )}
+
+        {stationsNotInstalled.length > 0 && (
+          <>
+            <h2 className="stationsNotInstalledText">Stations en cours d'installation</h2>
             <div className="stationsHSList">
-                {stationsNotInstalled.map((stationd) => (
-                    <StationHS  key={stationd.station_id} station={stationd} />
-                ))}
+              {stationsNotInstalled.map((stationd) => (
+                <StationHS key={stationd.station_id} station={stationd} />
+              ))}
             </div>
+          </>
+        )}
+            
         </>
     )
 }

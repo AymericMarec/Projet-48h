@@ -727,7 +727,7 @@
     font-size: 0.95rem;
   }
 } 
-} 
+
 
 .header-current-page_text {
   @apply text-2xl font-semibold mx-auto; 
