@@ -175,25 +175,25 @@ export default function Details(){
                             <div style={{ display: 'flex', gap: 32, alignItems: 'center', justifyContent: 'flex-start' }}>
                                 {/* Vélo classique */}
                                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 70 }}>
-                                    <img src="/images/autres/velo.png" alt="vélo" style={{ width: 48, height: 48, marginBottom: 2 }} />
+                                    <img src="/img/icon-leVélo.svg" alt="vélo" style={{ width: 48, height: 48, marginBottom: 2 }} />
                                     <div style={{ fontWeight: 700, fontSize: 28, color: '#2EAD95' }}>{Station?.vehicle_types_available?.find(v => v.vehicle_type_id === 'classic')?.count ?? '-'}</div>
                                     <div style={{ fontSize: 13, color: '#888', marginTop: 2 }}>vélos</div>
                                 </div>
                                 {/* Vélo électrique */}
                                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 70 }}>
-                                    <img src="/images/autres/velo_elec.png" alt="vélo électrique" style={{ width: 48, height: 48, marginBottom: 2 }} />
+                                    <img src="/img/icon-leVélo-electric.svg" alt="vélo électrique" style={{ width: 48, height: 48, marginBottom: 2 }} />
                                     <div style={{ fontWeight: 700, fontSize: 28, color: '#2EAD95' }}>{Station?.vehicle_types_available?.find(v => v.vehicle_type_id === 'electric')?.count ?? '-'}</div>
                                     <div style={{ fontSize: 13, color: '#888', marginTop: 2 }}>vélos électrique</div>
                                 </div>
                                 {/* Places restantes */}
                                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 70 }}>
-                                    <img src="/images/autres/places.png" alt="places restantes" style={{ width: 48, height: 48, marginBottom: 2 }} />
+                                    <img src="/img/icon-station-v3-raccrocher.svg" alt="places restantes" style={{ width: 48, height: 48, marginBottom: 2 }} />
                                     <div style={{ fontWeight: 700, fontSize: 28, color: '#2EAD95' }}>{Station?.num_docks_available ?? '-'}</div>
                                     <div style={{ fontSize: 13, color: '#888', marginTop: 2 }}>places restantes</div>
                                 </div>
                                 {/* Capacité */}
                                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 70 }}>
-                                    <img src="/images/autres/capacite.png" alt="capacité" style={{ width: 48, height: 48, marginBottom: 2 }} />
+                                    <img src="/img/icon-abri-velo.svg" alt="capacité" style={{ width: 48, height: 48, marginBottom: 2 }} />
                                     <div style={{ fontWeight: 700, fontSize: 28, color: '#2EAD95' }}>{Station?.capacity ?? '-'}</div>
                                     <div style={{ fontSize: 13, color: '#888', marginTop: 2 }}>capacité</div>
                                 </div>

@@ -128,7 +128,7 @@ export default function Map(props:MapProps){
                                             marginBottom: 16,
                                             marginTop: 2,
                                         }}>
-                                            <img src="/images/autres/station_indispo.png" alt="Station indisponible" style={{ width: 40, height: 40 }} />
+                                            <img src="/img/icon-leVélo-KO-circle.svg" alt="Station indisponible" style={{ width: 40, height: 40 }} />
                                             <div>
                                                 <div style={{ fontWeight: 800, fontSize: 18, color: '#222' }}>Station indisponible</div>
                                                 <div style={{ fontSize: 12, color: '#888', marginTop: 2, fontWeight: 400 }}>
@@ -156,19 +156,19 @@ export default function Map(props:MapProps){
                                         }}>
                                             {/* Vélos */}
                                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 48 }}>
-                                                <img src="/images/autres/velo.png" alt="vélo" style={{ width: 32, height: 32, marginBottom: 2 }} />
+                                                <img src="/img/icon-leVélo-circle.svg" alt="vélo" style={{ width: 32, height: 32, marginBottom: 2 }} />
                                                 <div style={{ fontWeight: 700, fontSize: 20, color: '#2EAD95' }}>{loc.vehicle_types_available?.find(v => v.vehicle_type_id === 'classic')?.count ?? '-'}</div>
                                                 <div style={{ fontSize: 11, color: '#888', marginTop: 0 }}>vélos</div>
                                             </div>
                                             {/* Places */}
                                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 48 }}>
-                                                <img src="/images/autres/places.png" alt="places restantes" style={{ width: 32, height: 32, marginBottom: 2 }} />
+                                                <img src="/img/icon-station-v3-raccrocher.svg" alt="places restantes" style={{ width: 32, height: 32, marginBottom: 2 }} />
                                                 <div style={{ fontWeight: 700, fontSize: 20, color: '#2EAD95' }}>{loc.num_docks_available ?? '-'}</div>
                                                 <div style={{ fontSize: 11, color: '#888', marginTop: 0 }}>places restantes</div>
                                             </div>
                                             {/* Capacité */}
                                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 48 }}>
-                                                <img src="/images/autres/capacite.png" alt="capacité" style={{ width: 32, height: 32, marginBottom: 2 }} />
+                                                <img src="/img/icon-abri-velo.svg" alt="capacité" style={{ width: 32, height: 32, marginBottom: 2 }} />
                                                 <div style={{ fontWeight: 700, fontSize: 20, color: '#111' }}>{loc.capacity ?? '-'}</div>
                                                 <div style={{ fontSize: 11, color: '#888', marginTop: 0 }}>capacité</div>
                                             </div>
