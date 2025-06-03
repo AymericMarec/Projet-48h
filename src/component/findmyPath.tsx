@@ -8,34 +8,7 @@ export default function FindMyPath() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const departureParams = {
-      id: `stop_area:${departure}`,
-      name: departure,
-      type: "STOP_AREA"
-    };
-
-    const arrivalParams = {
-      id: `stop_area:${arrival}`,
-      name: arrival,
-      type: "STOP_AREA"
-    };
-
-    const now = new Date();
-    const dateStr = now.toISOString();
-
-    const baseUrl = 'https://webviews.infotbm.com/fr/itineraires/resultats';
-    const params = new URLSearchParams({
-      departure: JSON.stringify(departureParams),
-      arrival: JSON.stringify(arrivalParams),
-      date: dateStr,
-      isDepartureDate: 'true',
-      preferences: '0',
-      transportModes: 'bss',
-      option: 'earliestArrival',
-      withAccessibility: '0'
-    });
-
-    window.location.href = `${baseUrl}?${params.toString()}`;
+    window.location.href = `https://webviews.infotbm.com/fr/itineraires?departure=${departure}&arrival=${arrival}`;
   };
 
   return (
@@ -48,8 +21,7 @@ export default function FindMyPath() {
         <div>
           <input type="text" value={arrival} onChange={(e) => setArrival(e.target.value)} placeholder="Lieu d'arrivée" required/>
         </div>
-
-        <button type="submit">C'est parti !</button>
+        <button type="submit"> C'est parti !</button>
       </form>
     </div>
   );
