@@ -29,9 +29,9 @@ export default function Header({ currentPage = '' }: HeaderProps) {
             className="index-logo"
           />
           <nav className="index-nav">
-            <a href="#" className="index-nav-item">Se déplacer</a>
-            <a href="#" className="index-nav-item">Tarifs</a>
-            <a href="#" className="index-nav-item">Toute l'offre TBM</a>
+          <a href="/pathfinding" className="index-nav-item">Se déplacer</a>
+          <a href="/map" className="index-nav-item">Map</a>
+          <a href="/disruptions" className="index-nav-item">Perturbations</a>
           </nav>
         </div>
         <div className="index-header-right">
