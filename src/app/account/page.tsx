@@ -64,8 +64,15 @@ export default function AccountPage(){
         }
     }
 
+    const Deconnect = ()=>{
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('auth_user');
+        router.push("/")
+    }
+
     return (
         <div>
+            <button onClick={Deconnect}>Se déconnecter</button>
             <h2>email :</h2>
                 {loadingUser ? (
                     <div style={{ width: '200px', height: '20px', backgroundColor: '#ccc', borderRadius: '4px' }} />
