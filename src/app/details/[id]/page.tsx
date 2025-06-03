@@ -3,7 +3,7 @@
 import { GetLocationById } from "@/lib/api/map"
 import { RawStation } from "@/type/map"
 import { useParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { use, useEffect, useState } from "react"
 import Map from "@/component/mapPage/Map"
 import dynamic from 'next/dynamic'
 
@@ -18,6 +18,7 @@ export default function Details(){
 
     const [Station,setStation] = useState<RawStation | null>(null)
     const [LoadingStation,setLoadingStation] = useState(true)
+    const [isFav,setFav] = useState(false)
     useEffect(()=>{
         const FetchLocation = async ()=>{
             const data:RawStation = await GetLocationById(id)
@@ -27,11 +28,39 @@ export default function Details(){
         FetchLocation()
     },[])
 
+    useEffect(()=>{
+        const favRaw = localStorage.getItem('fav');
+        const favArray = favRaw ? JSON.parse(favRaw) : [];
+        const id = Station?._id
+        if(favArray.includes(id)){
+            setFav(true)
+        }
+    },[])
+
+    const toggleFav = () => {
+        const favRaw = localStorage.getItem('fav');
+        const favArray = favRaw ? JSON.parse(favRaw) : [];
+
+        if (isFav) {
+            const updatedFav = favArray.filter((favId:string) => favId !== id);
+            localStorage.setItem('fav', JSON.stringify(updatedFav));
+            setFav(false);
+        } else {
+            favArray.push(id);
+            localStorage.setItem('fav', JSON.stringify(favArray));
+            setFav(true);
+        }
+    };
+
     return(
         <div>
             <div>{Station?.address}</div>
         
-            <Map id={id}></Map>
+            <Map id={id} zoom={12}></Map>
+            <button onClick={toggleFav}>
+                {isFav ? 'Retirer fav' : 'Ajouter fav'}
+            </button>
+
         </div>
     )
 }
