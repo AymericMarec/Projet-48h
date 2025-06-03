@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import '@/css/index.css';
+import { useRouter } from 'next/router';
 
 type HeaderProps = {
   currentPage?: string;
@@ -54,8 +55,17 @@ export default function Header({ currentPage = '' }: HeaderProps) {
       {currentPage && (
         <header className="index-header">
           <div className="index-header-left">
-            <a href="/" className="header-current-page_text">{'❰ '}{currentPage}</a>
-          </div>
+          <a
+            href="#"
+            onClick={e => {
+              e.preventDefault();
+              window.history.back();
+            }}
+            className="header-current-page_text"
+          >
+            {'❰ '}{currentPage}
+          </a>
+                    </div>
         </header>
       )}
     </>
