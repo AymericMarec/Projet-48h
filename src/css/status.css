@@ -1,25 +1,66 @@
 @import "tailwindcss";
 
-.statusContainer {
-    @apply flex flex-col items-center justify-center min-h-screen bg-white rounded-2xl 
+/* Styles pour l'état "Aucune perturbation" */
+.upPart {
+    @apply flex justify-center w-full;
 }
 
-.upPart {
-    @apply flex items-center justify-center mb-8
+.stationsOKLogo {
+    @apply w-20 h-auto
 }
 
 .downPart {
-    @apply text-center
+    @apply text-center flex justify-center  w-full;
 }
 
 .noPerturbationsText {
-    @apply text-3xl font-semibold text-black
+    @apply text-lg font-semibold text-black;
+    line-height: 1.3;
 }
 
-.circleCheck {
-    @apply bg-green-100 rounded-full p-8 flex items-center justify-center shadow-md;
+/* Styles pour les deux */
+.statusCard {
+    @apply flex flex-wrap items-center bg-white rounded-2xl shadow-md p-6 w-full max-w-sm mx-auto;
 }
 
-.checkIcon {
-    @apply w-16 h-16 text-green-400;
+/* Styles pour l'état "Stations perturbées" */
+.statusCardLeft {
+    @apply flex-shrink-0 mr-4 relative;
+}
+
+.stationsHSLogo {
+    @apply w-20 h-auto
+}
+
+.statusCardCenter {
+    @apply flex-grow flex flex-col justify-center;
+}
+
+.nbStationsHS {
+    @apply text-3xl font-bold text-black;
+}
+
+.stationsImpactees {
+    @apply text-gray-600 text-sm;
+}
+
+.statusCardRight {
+    @apply flex-shrink-0 ml-4 flex items-center;
+}
+
+.arrowRight {
+    @apply text-gray-400 text-2xl;
+}
+
+.statusCardBottom {
+    @apply w-full text-center mt-4;
+}
+
+.voirDetailBtn {
+    @apply font-semibold text-lg;
+}
+
+/* Style pour l'état d'erreur */
+.statusError {
+    @apply flex flex-wrap items-center bg-orange-200 rounded-2xl shadow-md p-6 w-full max-w-sm mx-auto;
 }
